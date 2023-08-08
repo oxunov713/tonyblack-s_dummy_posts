@@ -9,19 +9,9 @@ Future<void> main() async {
 
   Uri uri = Uri.parse("$baseUrl/posts/1");
 
-  http.Response response = await http.patch(
-    uri,
-    headers: <String, String>{
-      "Content-Type": "application/json; charset=UTF-8"
-    },
-    body: jsonEncode({
-      "tags": [
-        'hello',
-        'salom',
-        'privet',
-      ],
-    }),
-  );
+  http.Response response = await http.delete(
+      uri,
+    );
 
   Map<String, Object?> jsonResponse = jsonDecode(response.body);
   Posts? posts = Posts.fromJson(jsonResponse);
