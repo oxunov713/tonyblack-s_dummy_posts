@@ -7,7 +7,7 @@ import 'package:main/class/posts.dart';
 Future<void> main() async {
   String baseUrl = "https://dummyjson.com";
 
-  Uri uri = Uri.parse("$baseUrl/posts?limit=5&skip=10&select=title,userId,reactions");
+  Uri uri = Uri.parse("$baseUrl/posts/user/5");
   http.Response response = await http.get(uri);
 
   Map<String, Object?> json = jsonDecode(response.body);
