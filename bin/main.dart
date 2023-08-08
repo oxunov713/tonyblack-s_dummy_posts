@@ -7,26 +7,25 @@ import 'package:main/class/posts.dart';
 Future<void> main() async {
   String baseUrl = "https://dummyjson.com";
 
-  Uri uri = Uri.parse("$baseUrl/posts/add");
+  Uri uri = Uri.parse("$baseUrl/posts/8");
 
-  Posts? post = Posts(
-      title: "my own page",
-      body: "hello it is mine",
-      tags: [
-        'her',
-        'him',
-      ],
-      userId: 7);
-
-  http.Response response = await http.post(
+  http.Response response = await http.put(
     uri,
     headers: <String, String>{
       "Content-Type": "application/json; charset=UTF-8"
     },
-    body: jsonEncode(post.toJson()),
+    body: jsonEncode({
+      "title": "Tony Stark",
+      "body": "bu endi tony starkga tegishli",
+      "tags": [
+        'her',
+        'him',
+      ],
+      "userId": 8,
+    }),
   );
 
-  Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+  Map<String, Object?> jsonResponse = jsonDecode(response.body);
   Posts? posts = Posts.fromJson(jsonResponse);
   print(posts);
 }
