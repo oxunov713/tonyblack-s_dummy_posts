@@ -3,7 +3,7 @@ class Posts {
   String? title;
   String? body;
   int? userId;
-  List<String>? tags;
+  List? tags;
   int? reactions;
 
   Posts({
@@ -19,7 +19,7 @@ class Posts {
         id: json['id'] as int?,
         title: json['title'] as String?,
         body: json['body'] as String?,
-        tags: json['tags'] as List<String>?,
+        tags: json['tags'] as List?,
         userId: json['userId'] as int?,
         reactions: json['reactions'] as int?,
       );
