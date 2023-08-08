@@ -9,9 +9,7 @@ Future<void> main() async {
 
   Uri uri = Uri.parse("$baseUrl/posts/1");
 
-  http.Response response = await http.delete(
-      uri,
-    );
+  http.Response response = await http.delete(uri);
 
   Map<String, Object?> jsonResponse = jsonDecode(response.body);
   Posts? posts = Posts.fromJson(jsonResponse);
